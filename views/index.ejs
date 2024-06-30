@@ -1,0 +1,6 @@
+<h1>Recent Posts</h1>
+<% if (posts.length > 0) { %>
+  <%- include('./partials/post-grid', { posts }) %>
+<% } else { %>
+  <p>No posts found yet. Be the first one to create a post! 😎</p>
+<% } %>

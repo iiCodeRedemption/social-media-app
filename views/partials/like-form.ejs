@@ -1,0 +1,7 @@
+<form action="<%= url %>" method="POST">
+  <% if (!liked) { %>
+    <%- include("./like-button") %>
+  <% } else { %>
+    <%- include("./dislike-button") %>
+  <% } %>
+</form>

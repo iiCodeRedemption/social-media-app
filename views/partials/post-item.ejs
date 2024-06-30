@@ -1,0 +1,28 @@
+<div class="col-md-4">
+  <div class="card mb-4">
+    <div class="card-body">
+      <h5 class="card-title"><%= post.title %></h5>
+      <p class="card-text"><%= post.content %></p>
+      <a href="/post/<%= post.slug %>" class="btn btn-primary">Read More &rarr;</a>
+    </div>
+    <div class="card-footer d-flex justify-content-between align-items-center">
+      <div>
+        Posted on <%= post.createdAt.toLocaleDateString() %> by
+        <a href="/user/<%= post.author._id %>/profile">
+          <% if (locals.userId === post.author._id.toString()) { %>
+            you
+          <% } else { %>
+            <%= post.author.name %>
+          <% } %>
+        </a>
+      </div>
+      <div>
+        <%- include("./like-form", {
+          url: `/post/${post._id}/like`,
+          liked: post.likes.includes(locals.userId)
+        }) %>
+        <%- include("./like-badge", { count: post.likes.length }) %>
+      </div>
+    </div>
+  </div>
+</div>

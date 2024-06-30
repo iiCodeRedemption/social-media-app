@@ -1,0 +1,14 @@
+<li class="nav-item">
+  <a class="nav-link" href="/post/new">New Post</a>
+</li>
+<li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    My Account
+  </a>
+  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+    <a class="dropdown-item" href="/user/<%= locals.userId %>/profile">Profile</a>
+    <form action="/auth/logout" method="POST">
+      <button type="submit" class="dropdown-item">Logout</button>
+    </form>
+  </div>
+</li>
